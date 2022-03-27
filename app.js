@@ -1,4 +1,5 @@
 const express = require('express');
+require('dotenv').config();
 const path = require('path');
 const session = require('express-session');
 const passport = require('passport');
@@ -8,8 +9,7 @@ const bcrypt = require('bcryptjs');
 
 const Schema = mongoose.Schema;
 
-const mongoDB =
-  'mongodb+srv://faroukhamadi:16042002farouk@cluster0.zasii.mongodb.net/Auth_app?retryWrites=true&w=majority';
+const mongoDB = process.env.MONGODB_KEY;
 
 mongoose.connect(mongoDB, { useUnifiedTopology: true, useNewUrlParser: true });
 const db = mongoose.connection;
